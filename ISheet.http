@@ -1,0 +1,19 @@
+@ISheet_HostAddress = http://localhost:5224
+
+GET {{ISheet_HostAddress}}/ficheInterventions/
+Accept: application/json
+
+###
+
+GET {{ISheet_HostAddress}}/ficheInterventions/1
+
+###
+
+POST {{ISheet_HostAddress}}/ficheInterventions
+Content-Type: application/json
+
+{
+  "auteur": "terry",
+  "dateCreation": "2024-06-09",
+  "status": "Termine"
+}
