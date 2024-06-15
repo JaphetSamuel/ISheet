@@ -1,5 +1,4 @@
 using ISheet.Dtos;
-using ISheet.Models;
 
 public static class FicheInterventionEndpoints
 {
@@ -11,7 +10,9 @@ public static class FicheInterventionEndpoints
 
     public static WebApplication MapFicheIntervention(this WebApplication app)
     {
-        var group = app.MapGroup("/FicheInterventions").WithOpenApi();
+        var group = app.MapGroup("/FicheInterventions")
+        .WithOpenApi()
+        .WithParameterValidation();
 
         // GET FicheInterventions/
         group.MapGet("/", () =>

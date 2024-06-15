@@ -1,11 +1,17 @@
 
 
+using ISheet.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connString = builder.Configuration.GetConnectionString("ISheet");
+
+builder.Services.AddSqlite<ISheetStoreContext>(connString);
 
 var app = builder.Build();
 
